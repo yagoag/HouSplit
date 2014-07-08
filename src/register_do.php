@@ -9,7 +9,7 @@
         // Get username from POST
 		$user = $_POST['username'];
         
-        $user_exists = mysql_num_rows(mysql_query("SELECT * FROM members  WHERE username = \"$user\"")) >= 1;
+        $user_exists = mysql_num_rows(mysql_query("SELECT * FROM members  WHERE username = '$user'")) >= 1;
         
         if ($user_exists)
             echo "Username already in use.";

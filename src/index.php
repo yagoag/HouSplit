@@ -1,6 +1,7 @@
 <html>
 
 <body>
+    <?php include_once "session.php"; ?>
     <form id="new_bill" name="new_bill" method="post" action="new_bill_do.php">
         <p>Bill Name: <input type="text" name="name" /></p>
         <p>Value: <input type="text" name="value" /></p>

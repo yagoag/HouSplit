@@ -1,4 +1,6 @@
 <?php
+    include_once "session.php";
+
     if ($_POST['new_bill']) {
         include_once "config.php";
 
