@@ -2,7 +2,7 @@
     include_once "session.php";
 
     if ($_POST['new_bill']) {
-        include_once "config.php";
+        include_once "../config.php";
 
         // Get POST values
         $name = $_POST['name'];

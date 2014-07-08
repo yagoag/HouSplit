@@ -1,6 +1,6 @@
 <?php
 	if ($_POST['register']) {
-        include_once "config.php";
+        include_once "../config.php";
         
         // Set up MySQL connection
         $db_handler = mysql_connect($mysql_server, $mysql_username, $mysql_password);
