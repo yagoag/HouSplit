@@ -3,4 +3,6 @@
 
     unset($_SESSION['username']);
     unset($_SESSION['userip']);
+
+    header("Location: ../");
 ?>

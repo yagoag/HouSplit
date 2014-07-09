@@ -1,0 +1,106 @@
+/*
+Style.css file for RePepeca
+Designed by Yago Arroyo
+Source code available at github.com/yagoag
+*/
+
+@font-face {
+    font-family: "BebasNeus";
+    src: url(../font/BebasNeue.otf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+body {
+    background: #1b3792;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+#login_status {
+    background: #ffea00;
+    color: #1b3792;
+    border-radius: 0 0 5px 5px;
+    height: 35px;
+    float: right;
+    margin-top: -10px;
+    margin-right: 45px;
+    padding: 5px 10px;
+    text-align: right;
+}
+
+#login_status .username {
+    font-family: "BebasNeue", sans-serif;
+    font-size: 26px;
+}
+
+#login_status .logout, #login_status .logout a {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    margin-top: -10px;
+}
+
+#login_status a {
+    color: #1b3792;
+}
+
+#login_status a:hover {
+    color: #fff;
+}
+
+#header {
+    font-family: "BebasNeue", sans-serif;
+    margin-top: 10px;
+    margin-left: 200px;
+    margin-bottom: -40px;
+}
+
+#header .logo {
+    float: left;
+}
+
+#sidebar {
+    float: left;
+    width: 160px;
+    text-align: right;
+    margin-top: 50px;
+}
+
+#sidebar .option {
+    font-family: "BebasNeue", sans-serif;
+    font-size: 42px;
+    margin-bottom: -10px;
+}
+
+#sidebar .description {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    margin-bottom: 10px;
+}
+
+#sidebar a {
+    color: #fff;
+}
+
+#sidebar .active, #sidebar a:hover {
+    color: #ffea00;
+}
+
+#content {
+    background: white;
+    border-radius: 15px 0 0 15px;
+    margin-left: 170px;
+    min-height: 400px;
+    padding: 65px 30px 30px 50px;
+    color: #000;
+}
+
+#footer {
+    margin-left: 200px;
+    font-size: 11px;
+}

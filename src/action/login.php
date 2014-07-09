@@ -33,7 +33,7 @@
                     $_SESSION['userip'] = $_SERVER['REMOTE_ADDR'];
 
                     // Redirect user to main page
-                    header("Location: show_groups.php");
+                    header("Location: ../");
                 }
             } else {
                 echo "Username does not exist.";
