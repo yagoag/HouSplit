@@ -28,6 +28,9 @@
         
         // Close connection
         mysql_close($db_handler);
+        
+        // Redirect user back to main page
+        header("Location: ../");
     } else
         die();
 ?>

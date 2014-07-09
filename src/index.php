@@ -18,8 +18,7 @@
         ?>
     </div>
     <div id="header">
-        <img src="img/logo.png" />
-        NAME OS ZEEW WEBSIETS
+        <img class="logo" src="img/logo.png" />RePepeca
     </div>
     <div id="sidebar">
         <a href="?p=new_bill">
@@ -42,6 +41,6 @@
                 include "login.php";
         ?>
     </div>
-    <div id="footer">RePepeca Alpha 1 - Copyright &copy; 2014, Yago Arroyo</div>
+    <div id="footer">RePepeca Alpha 2 - Copyright &copy; 2014, Yago Arroyo</div>
 </body>
 </html>
