@@ -41,6 +41,6 @@
                 include "login.php";
         ?>
     </div>
-    <div id="footer">RePepeca Alpha 2 - Copyright &copy; 2014, Yago Arroyo</div>
+    <div id="footer">RePepeca Alpha 3 - Copyright &copy; 2014, Yago Arroyo</div>
 </body>
 </html>

@@ -136,6 +136,18 @@ form {
     margin-bottom: 5px;
 }
 
+#content .member_list {
+    background: #ddd;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.3);
+    padding: 10px 15px;
+    font-size: 14px;
+    border: 1px solid #bbb;
+    text-align: left;
+}
+
 #footer {
     margin-left: 200px;
     font-size: 11px;
