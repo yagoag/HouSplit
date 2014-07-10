@@ -25,7 +25,11 @@
             <div class="option">Balance</div>
             <div class="description">see members' balance table</div>
         </a>
-        <a href="?p=payment">
+        <a href="?p=bill">
+            <div class="option">New Bill</div>
+            <div class="description">create a new bill</div>
+        </a>
+        <a href="?p=pay">
             <div class="option">New Payment</div>
             <div class="description">make a new payment</div>
         </a>
@@ -63,6 +67,6 @@
             }
         ?>
     </div>
-    <div id="footer">RePepeca Alpha 5 - Copyright &copy; 2014, Yago Arroyo</div>
+    <div id="footer">RePepeca Alpha 6 - Copyright &copy; 2014, Yago Arroyo</div>
 </body>
 </html>

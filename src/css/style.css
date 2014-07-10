@@ -26,7 +26,7 @@ p {
     margin-bottom: 7px;
 }
 
-input {
+input, select {
     background: #fff;
     border-radius: 5px;
     -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.3);
@@ -36,6 +36,14 @@ input {
     font-size: 18px;
     border: 1px solid #bbb;
     color: #777;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 8px 28px 8px 12px;
+    background: url("../img/down_arrow.png") no-repeat 90% center;
 }
 
 input[type="button"], input[type="submit"] {

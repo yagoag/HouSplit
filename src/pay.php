@@ -18,15 +18,16 @@
     <p><input type="text" name="name" placeholder="Name" /></p>
     <p><input type="text" name="value" placeholder="Value" /></p>
     <br />
-    <div class="member_list">
-        <p><input type="checkbox" onClick="toggle(this)" /> <strong>Select all members</strong></p>
+    <p>
+        <select name="member">
         <?php
             $db_info = mysql_query("SELECT * FROM members");
             while ($member = mysql_fetch_array($db_info))
                 if ($member['username'] != $user)
-                    echo '<p><input type="checkbox" name="members[]" value="' . $member['id'] . '" /> ' . $member['name'] . '</p>';
+                    echo '<option value="' . $member['id'] . '">' . $member['name'] . '</option>';
         ?>
-    </div>
+        </select>
+    </p>
     <br />
     <p><input type="submit" name="new_payment" value="Add Payment" /></p>
 </form>
