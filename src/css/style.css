@@ -5,8 +5,8 @@ Source code available at github.com/yagoag
 */
 
 @font-face {
-    font-family: "BebasNeus";
-    src: url(../font/BebasNeue.otf);
+    font-family: "BebasNeue";
+    src: url("../font/BebasNeue.otf");
 }
 
 * {
@@ -56,7 +56,7 @@ form {
     height: 45px;
     float: right;
     margin-top: -10px;
-    margin-right: 65px;
+    margin-right: 20%;
     padding: 5px 10px;
     text-align: right;
 }
@@ -83,7 +83,7 @@ form {
 #header {
     font-family: "BebasNeue", sans-serif;
     margin-top: 10px;
-    margin-left: 200px;
+    margin-left: 23%;
     margin-bottom: -65px;
     color: #ffea00;
     font-size: 120px;
@@ -96,7 +96,7 @@ form {
 
 #sidebar {
     float: left;
-    width: 160px;
+    width: 20%;
     text-align: right;
     margin-top: 50px;
 }
@@ -124,7 +124,7 @@ form {
 #content {
     background: white;
     border-radius: 15px 0 0 15px;
-    margin-left: 170px;
+    margin-left: 21%;
     min-height: 300px;
     padding: 65px 30px 30px 50px;
     color: #000;
@@ -146,9 +146,10 @@ form {
     font-size: 14px;
     border: 1px solid #bbb;
     text-align: left;
+    width: 195px;
 }
 
 #footer {
-    margin-left: 200px;
+    margin-left: 23%;
     font-size: 11px;
 }

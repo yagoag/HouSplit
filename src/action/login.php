@@ -2,7 +2,7 @@
     session_start();
 
     if ($_POST['login']) {
-        include_once "../config.php";
+        include_once "config.php";
         
         // Set up MySQL connection
         $db_handler = mysql_connect($mysql_server, $mysql_username, $mysql_password);
@@ -24,7 +24,7 @@
                 $db_info = mysql_fetch_assoc($db_info);
 
                 // Set number of interations and hash password
-                $iterations = 1000;
+                $iterations = 5000;
                 $pass = hash_pbkdf2("sha256", $pass, $db_info['salt'], $iterations, 20);
 
                 if ($pass == $db_info['password']) {
@@ -33,7 +33,7 @@
                     $_SESSION['userip'] = $_SERVER['REMOTE_ADDR'];
 
                     // Redirect user to main page
-                    header("Location: ../");
+                    header("Location: index.php");
                 }
             } else {
                 echo "Username does not exist.";

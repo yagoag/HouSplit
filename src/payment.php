@@ -13,8 +13,8 @@
         }
     }
 </script>
-<div class="title">New Bill</div>
-<form id="new_bill" name="new_bill" method="post" action="action/create_bill.php">
+<div class="title">New Payment</div>
+<form id="new_payment" name="new_payment" method="post" action="?act=pay">
     <p><input type="text" name="name" placeholder="Name" /></p>
     <p><input type="text" name="value" placeholder="Value" /></p>
     <br />
@@ -23,9 +23,10 @@
         <?php
             $db_info = mysql_query("SELECT * FROM members");
             while ($member = mysql_fetch_array($db_info))
-                echo '<p><input type="checkbox" name="members[]" value="' . $member['id'] . '" /> ' . $member['name'] . '</p>';
+                if ($member['username'] != $user)
+                    echo '<p><input type="checkbox" name="members[]" value="' . $member['id'] . '" /> ' . $member['name'] . '</p>';
         ?>
     </div>
     <br />
-    <p><input type="submit" name="new_bill" value="Create Bill" /></p>
+    <p><input type="submit" name="new_payment" value="Add Payment" /></p>
 </form>
