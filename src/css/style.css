@@ -149,6 +149,33 @@ form {
     width: 195px;
 }
 
+#content .balance table, #content .balance .tbody {
+    font-family: "BebasNeue", sans-serif;
+    font-size: 22px;
+    color: #333;
+    border: none;
+}
+
+#content .balance td {
+    padding: 2px 5px;
+}
+
+#content .balance .bal {
+    text-align: right;
+}
+
+#content .balance .negative {
+    color: red;
+}
+
+#content .balance .positive {
+    color: green;
+}
+
+#content .balance .neutral {
+    color: blue;
+}
+
 #footer {
     margin-left: 23%;
     font-size: 11px;
