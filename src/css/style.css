@@ -157,15 +157,19 @@ form {
     width: 195px;
 }
 
-#content .balance table, #content .balance .tbody {
+#content table {
     font-family: "BebasNeue", sans-serif;
     font-size: 22px;
     color: #333;
     border: none;
 }
 
-#content .balance td {
+#content td {
     padding: 2px 5px;
+}
+
+#content table .header {
+    color: #1b3792;
 }
 
 #content .balance .bal {

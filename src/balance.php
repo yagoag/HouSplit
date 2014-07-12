@@ -25,7 +25,7 @@
                     echo 'neutral';
                 else
                     echo 'positive';
-                echo '">' . number_format(abs($member['balance']), 2) . '</td>';
+                echo '">' . $currency . number_format(abs($member['balance']), 2) . '</td>';
 
                 // Print debit/credit
                 if ($balance < 0)
@@ -34,7 +34,7 @@
                     echo '<td></td>';
                 else
                     echo '<td class="positive">C</td>';
-                
+
                 echo '</tr>' . PHP_EOL;
             }
         ?>

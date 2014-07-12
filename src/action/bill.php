@@ -12,7 +12,7 @@
         $db_found = mysql_select_db($mysql_db, $db_handler);
         
         // Insert payment into database
-        mysql_query("INSERT INTO payments (name, date, value) VALUES ('$name', now(), $value)");
+        mysql_query("INSERT INTO payments (name, date, type, value) VALUES ('$name', now(), 'Bill', $value)");
         
         // Get payment's ID
         $payment_id = mysql_fetch_assoc(mysql_query("SELECT MAX(id) AS payment_id FROM payments"));
