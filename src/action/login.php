@@ -1,6 +1,4 @@
 <?php
-    session_start();
-
     if ($_POST['login']) {
         include_once "config.php";
         

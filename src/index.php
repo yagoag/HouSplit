@@ -1,8 +1,11 @@
-<?php include_once "action/session.php"; ?>
+<?php
+    include_once "action/session.php";
+    include_once "config.php";
+?>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>RePepeca</title>
+    <title><?php echo $republica; ?></title>
     <link href="css/style.css" media="all" rel="Stylesheet" type="text/css">
     <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
 </head>
@@ -18,7 +21,7 @@
         ?>
     </div>
     <div id="header">
-        <img class="logo" src="img/logo.png" />RePepeca
+        <img class="logo" src="img/logo.png" /><?php echo $republica; ?>
     </div>
     <div id="sidebar">
         <a href="?p=balance">
@@ -35,7 +38,11 @@
         </a>
         <a href="?p=pay">
             <div class="option">New Payment</div>
-            <div class="description">make a new payment</div>
+            <div class="description">make a new debit payment</div>
+        </a>
+        <a href="?p=credit">
+            <div class="option">New Credit Transference</div>
+            <div class="description">make a new credit transference</div>
         </a>
         <a href="?p=register">
             <div class="option">Register</div>
@@ -71,6 +78,6 @@
             }
         ?>
     </div>
-    <div id="footer">RePepeca Alpha 7 - Copyright &copy; 2014, Yago Arroyo</div>
+    <div id="footer">RePepeca Alpha 8 - Copyright &copy; 2014, Yago Arroyo</div>
 </body>
 </html>
