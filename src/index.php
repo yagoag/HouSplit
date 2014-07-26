@@ -14,8 +14,8 @@
     <div id="login_status">
         <?php
             if ($loggedin) {
-                echo '<div class="username">' . $user . '</div>';
-                echo '<div class="logout"><a href="action/logout.php">logout</a></div>';
+                echo '<div class="username"><a href="?p=account"><img src="img/edit.png" /></a> ' . $user . '</div>';
+                echo '<div class="logout"><a href="?act=logout">logout</a></div>';
             } else
                 echo '<div class="username"><a href="?p=login">Login</a></div>';
         ?>
@@ -78,6 +78,6 @@
             }
         ?>
     </div>
-    <div id="footer">RePepeca Alpha 8 - Copyright &copy; 2014, Yago Arroyo</div>
+    <div id="footer">RePepeca Alpha 9 - Copyright &copy; 2014, Yago Arroyo</div>
 </body>
 </html>

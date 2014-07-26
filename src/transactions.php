@@ -23,8 +23,8 @@
             echo '<td>' . date($dateformat, strtotime($payment['date'])) . '</td>';
             echo '<td>' . $payment['type'] . '</td>';
             echo '<td>' . $payment['name'] . '</td>';
-            echo '<td>' . $currency . $payment['value'] . '</td>';
-            echo '<td>' . $currency . $info['value'] . '</td></tr>';
+            echo '<td>' . $currency . number_format($payment['value'], 2) . '</td>';
+            echo '<td>' . $currency . number_format($info['value'], 2) . '</td></tr>';
         }
     ?>
 </table>

@@ -57,6 +57,14 @@ form {
     width: 200px;
 }
 
+a img {
+    opacity: 0.5;
+}
+
+a:hover img {
+    opacity: 1;
+}
+
 #login_status {
     background: #ffea00;
     color: #1b3792;
@@ -133,7 +141,7 @@ form {
     background: white;
     border-radius: 15px 0 0 15px;
     margin-left: 21%;
-    min-height: 300px;
+    min-height: 400px;
     padding: 65px 30px 30px 50px;
     color: #000;
 }

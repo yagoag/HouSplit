@@ -1,7 +1,5 @@
 <?php
     if ($_POST['login']) {
-        include_once "config.php";
-        
         // Set up MySQL connection
         $db_handler = mysql_connect($mysql_server, $mysql_username, $mysql_password);
         $db_found = mysql_select_db($mysql_db, $db_handler);
@@ -21,9 +19,8 @@
                 // Turns query's result into an array with its info
                 $db_info = mysql_fetch_assoc($db_info);
 
-                // Set number of interations and hash password
-                $iterations = 5000;
-                $pass = hash_pbkdf2("sha256", $pass, $db_info['salt'], $iterations, 20);
+                // Hash password
+                $pass = hash_pbkdf2("sha256", $pass, $db_info['salt'], $crypt_iterations, 20);
 
                 if ($pass == $db_info['password']) {
                     // Set username and userip of the session
