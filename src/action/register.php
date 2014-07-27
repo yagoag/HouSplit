@@ -19,10 +19,10 @@
             
             if (!empty($newuser) && !empty($name) && !empty($pass)) {
                 // Set salt value for PDKDF2
-                if ($salt_source == "random_bytes")
-                    $salt = openssl_random_pseudo_bytes(16);
-                else
-                    $salt = mcrypt_create_iv(16, MCRYPT_DEV_URANDOM);
+                $new_salt = mcrypt_create_iv(16, MCRYPT_DEV_URANDOM);
+
+                if ($alphanum_salt)
+                    $new_salt = md5($new_salt);
 
                 // Hash password
                 $pass = hash_pbkdf2("sha256", $pass, $salt, $crypt_iterations, 20);

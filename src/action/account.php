@@ -28,10 +28,10 @@
 
                     if ($new_password == $_POST['new_password_check']) {
                         // Set salt value for PDKDF2
-                        if ($salt_source == "random_bytes")
-                            $new_salt = openssl_random_pseudo_bytes(16);
-                        else
-                            $new_salt = mcrypt_create_iv(16, MCRYPT_DEV_URANDOM);
+                        $new_salt = mcrypt_create_iv(16, MCRYPT_DEV_URANDOM);
+
+                        if ($alphanum_salt)
+                            $new_salt = md5($new_salt);
 
                         // Hash password
                         $new_password = hash_pbkdf2("sha256", $new_password, $new_salt, $crypt_iterations, 20);
