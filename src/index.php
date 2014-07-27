@@ -1,6 +1,11 @@
 <?php
     include_once "action/session.php";
     include_once "config.php";
+
+    if (file_exists('languages/' . $language . '.php'))
+        include_once 'languages/' . $language . '.php';
+    else
+        include_once 'languages/en_US.php';
 ?>
 <html>
 <head>
@@ -15,9 +20,9 @@
         <?php
             if ($loggedin) {
                 echo '<div class="username"><a href="?p=account"><img src="img/edit.png" /></a> ' . $user . '</div>';
-                echo '<div class="logout"><a href="?act=logout">logout</a></div>';
+                echo '<div class="logout"><a href="?act=logout">' . $lang['logout'] . '</a></div>';
             } else
-                echo '<div class="username"><a href="?p=login">Login</a></div>';
+                echo '<div class="username"><a href="?p=login">' . $lang['login'] . '</a></div>';
         ?>
     </div>
     <div id="header">
@@ -25,28 +30,28 @@
     </div>
     <div id="sidebar">
         <a href="?p=balance">
-            <div class="option">Balance</div>
-            <div class="description">see members' balance table</div>
+            <div class="option"><?php echo $lang['balance_title']; ?></div>
+            <div class="description"><?php echo $lang['balance_description']; ?></div>
         </a>
         <a href="?p=transactions">
-            <div class="option">Transactions</div>
-            <div class="description">show transactions list</div>
+            <div class="option"><?php echo $lang['transactions_title']; ?></div>
+            <div class="description"><?php echo $lang['transactions_description']; ?></div>
         </a>
         <a href="?p=bill">
-            <div class="option">New Bill</div>
-            <div class="description">create a new bill</div>
+            <div class="option"><?php echo $lang['new_bill_title']; ?></div>
+            <div class="description"><?php echo $lang['new_bill_description']; ?></div>
         </a>
         <a href="?p=pay">
-            <div class="option">New Payment</div>
-            <div class="description">make a new debit payment</div>
+            <div class="option"><?php echo $lang['new_payment_title']; ?></div>
+            <div class="description"><?php echo $lang['new_payment_description']; ?></div>
         </a>
         <a href="?p=credit">
-            <div class="option">New Credit Transference</div>
-            <div class="description">make a new credit transference</div>
+            <div class="option"><?php echo $lang['new_cred_transf_title']; ?></div>
+            <div class="description"><?php echo $lang['new_cred_transf_description']; ?></div>
         </a>
         <a href="?p=register">
-            <div class="option">Register</div>
-            <div class="description">register a new account</div>
+            <div class="option"><?php echo $lang['register_title']; ?></div>
+            <div class="description"><?php echo $lang['register_description']; ?></div>
         </a>
     </div>
     <div id="content">
@@ -78,6 +83,6 @@
             }
         ?>
     </div>
-    <div id="footer">RePepeca Alpha 9 - Copyright &copy; 2014, Yago Arroyo</div>
+    <div id="footer">RePepeca Alpha 10 - Copyright &copy; 2014, Yago Arroyo</div>
 </body>
 </html>

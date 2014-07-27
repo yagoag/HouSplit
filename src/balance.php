@@ -5,7 +5,7 @@
     $db_handler = mysql_connect($mysql_server, $mysql_username, $mysql_password);
     $db_found = mysql_select_db($mysql_db, $db_handler);
 ?>
-<div class="title">Balance</div>
+<div class="title"><?php echo $lang['balance_title']; ?></div>
 <div class="balance">
     <table>
         <?php

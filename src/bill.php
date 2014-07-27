@@ -13,13 +13,13 @@
         }
     }
 </script>
-<div class="title">New Bill</div>
+<div class="title"><?php echo $lang['new_bill_title']; ?></div>
 <form id="new_payment" name="new_payment" method="post" action="?act=bill">
-    <p><input type="text" name="name" placeholder="Name" /></p>
-    <p><input type="text" name="value" placeholder="Value" /></p>
+    <p><input type="text" name="name" placeholder="<?php echo $lang['name']; ?>" /></p>
+    <p><input type="text" name="value" placeholder="<?php echo $lang['value']; ?>" /></p>
     <br />
     <div class="member_list">
-        <p><input type="checkbox" onClick="toggle(this)" /> <strong>Select all members</strong></p>
+        <p><input type="checkbox" onClick="toggle(this)" /> <strong><?php echo $lang['select_all_members']; ?></strong></p>
         <?php
             $db_info = mysql_query("SELECT * FROM members");
             while ($member = mysql_fetch_array($db_info))
@@ -28,5 +28,5 @@
         ?>
     </div>
     <br />
-    <p><input type="submit" name="new_payment" value="Add Payment" /></p>
+    <p><input type="submit" name="new_payment" value="<?php echo $lang['add_bill']; ?>" /></p>
 </form>

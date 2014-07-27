@@ -1,2 +1,2 @@
-<div class="title">Error 404</div>
-<p>Page not foud</p>
+<div class="title"><?php echo $lang['error_404_title']; ?></div>
+<p><?php echo $lang['error_404_description']; ?></p>

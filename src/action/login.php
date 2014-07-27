@@ -9,9 +9,11 @@
         $pass = $_POST['password'];
 
         if (empty($user)) {
-            echo "Please, choose a username.";
+            echo '<div class="title">' . $lang['error'] . '</div>';
+            echo $lang['error_type_user_login'];
         } elseif (empty($pass)) {
-            echo "Please, choose a password.";
+            echo '<div class="title">' . $lang['error'] . '</div>';
+            echo $lang['error_type_pw_login'];
         } else {
             // (Try to) Select row with user's info 
             $db_info = mysql_query("SELECT * FROM members WHERE username = '$user'");
@@ -31,9 +33,12 @@
                     header("Location: index.php");
                 }
             } else {
-                echo "Username does not exist.";
+                echo '<div class="title">' . $lang['error'] . '</div>';
+                echo $lang['error_invalid_user'];
             }
-            echo "Username and/or password do not match.";
+
+            echo '<div class="title">' . $lang['error'] . '</div>';
+            echo $lang['error_user_pw_match'];
         }
    }
 ?>

@@ -5,10 +5,10 @@
     $db_handler = mysql_connect($mysql_server, $mysql_username, $mysql_password);
     $db_found = mysql_select_db($mysql_db, $db_handler);
 ?>
-<div class="title">New Credit Transference</div>
+<div class="title"><?php echo $lang['new_cred_transf_title']; ?></div>
 <form id="new_credit_transf" name="new_credit_transf" method="post" action="?act=credit">
-    <p><input type="text" name="name" placeholder="Name" /></p>
-    <p><input type="text" name="value" placeholder="Value" /></p>
+    <p><input type="text" name="name" placeholder="<?php echo $lang['name']; ?>" /></p>
+    <p><input type="text" name="value" placeholder="<?php echo $lang['value']; ?>" /></p>
     <br />
     <p>
         <select name="member">
@@ -21,5 +21,5 @@
         </select>
     </p>
     <br />
-    <p><input type="submit" name="new_credit_transf" value="Add Transference" /></p>
+    <p><input type="submit" name="new_credit_transf" value="<?php echo $lang['add_transference']; ?>" /></p>
 </form>

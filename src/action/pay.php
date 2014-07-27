@@ -1,7 +1,5 @@
 <?php
     if ($_POST['new_payment']) {
-        include_once "config.php";
-
         // Get POST values
         $name = $_POST['name'];
         $value = $_POST['value'];
@@ -37,7 +35,8 @@
         mysql_close($db_handler);
         
         // Show success message
-        echo "Payment added with success.";
+        echo '<div class="title">' . $lang['success'] . '</div>';
+        echo $lang['msg_payment_added'];
     } else
         die();
 ?>

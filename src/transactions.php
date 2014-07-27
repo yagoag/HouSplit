@@ -5,9 +5,9 @@
     $db_handler = mysql_connect($mysql_server, $mysql_username, $mysql_password);
     $db_found = mysql_select_db($mysql_db, $db_handler);
 ?>
-<div class="title">Transactions</div>
+<div class="title"><?php echo $lang['transactions_title']; ?></div>
 <table>
-    <tr class="header"><td>Date</td><td>Type</td><td>Name</td><td>Total Value</td><td>Divided Value</td></tr>
+    <tr class="header"><td><?php echo $lang['date']; ?></td><td><?php echo $lang['type']; ?></td><td><?php echo $lang['name']; ?></td><td><?php echo $lang['total_value']; ?></td><td><?php echo $lang['your_share']; ?></td></tr>
     <?php
         $db_info = mysql_query("SELECT * FROM members WHERE username = '$user'");
         $db_info = mysql_fetch_assoc($db_info);

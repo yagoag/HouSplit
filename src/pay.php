@@ -5,10 +5,10 @@
     $db_handler = mysql_connect($mysql_server, $mysql_username, $mysql_password);
     $db_found = mysql_select_db($mysql_db, $db_handler);
 ?>
-<div class="title">New Payment</div>
+<div class="title"><?php echo $lang['new_payment_title']; ?></div>
 <form id="new_payment" name="new_payment" method="post" action="?act=pay">
-    <p><input type="text" name="name" placeholder="Name" /></p>
-    <p><input type="text" name="value" placeholder="Value" /></p>
+    <p><input type="text" name="name" placeholder="<?php echo $lang['name']; ?>" /></p>
+    <p><input type="text" name="value" placeholder="<?php echo $lang['value']; ?>" /></p>
     <br />
     <p>
         <select name="member">
@@ -21,5 +21,5 @@
         </select>
     </p>
     <br />
-    <p><input type="submit" name="new_payment" value="Add Payment" /></p>
+    <p><input type="submit" name="new_payment" value="<?php echo $lang['add_payment']; ?>" /></p>
 </form>

@@ -37,7 +37,8 @@
         mysql_close($db_handler);
         
         // Show success message
-        echo "Credit transference done with success.";
+        echo '<div class="title">' . $lang['success'] . '</div>';
+        echo $lang['msg_cred_transf_added'];
     } else
         die();
 ?>
