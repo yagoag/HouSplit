@@ -1,7 +1,19 @@
 # RePepeca
 
-RePepeca is a bill management system based in PHP and MySQL for people dividing houses and bills, especially university students. It is meant to be used by "Repúblicas" - often shorted down to "Rep(s)" - which are houses divided by university students in Brazil, usually in a large number of people.
+![RePepeca](screenshot.png)
 
-### Installation
+RePepeca is a bill management system based in PHP and MySQL for people dividing houses and bills, especially university students. It is meant to be used by "Repúblicas" - often shorted down to "Rep(s)" - which are houses divided by university students in Brazil, usually in a large number of people. It can also be applied to many other situation in which people share bills and/or borrow money to each other.
 
-To install RePepeca, you first need to run the SQL query on "sql/" folder and then copy the files in "src/" to your server, editing the "config.php" file to fit your needs.
+## Requirements
+* PHP 5.5+ †
+* MySQL 5.0+
+
+† it is possible to adapt the system to work with older versions of PHP, but at least 5.5 is necessary to run the system as-is
+
+## Installation
+* Run the SQL query on the folder "sql/"
+* Copy the files in "src/" to your server
+* Edit "config.php" to fit your needs
+  * $crypt_iterations should only be set once the server is being set up. Changing the value of this configuration after server setup will result in older accounts of the database not working and needing manual fix.
+  * All of the other settings can be changed anytime according to your needs.
+* Run "install.php" to create the first account of the server. Be sure to delete the file from the server once the first account is created, otherwise strangers will be able to create accounts in your system uninvited.
