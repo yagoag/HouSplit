@@ -2,15 +2,14 @@
     include_once "config.php";
 
     // Set up MySQL connection
-    $db_handler = mysql_connect($mysql_server, $mysql_username, $mysql_password);
-    $db_found = mysql_select_db($mysql_db, $db_handler);
+    $db_connect = mysqli_connect($mysql_server, $mysql_username, $mysql_password, $mysql_db);
 ?>
 <div class="title"><?php echo $lang['balance_title']; ?></div>
 <div class="balance">
     <table>
         <?php
-            $db_info = mysql_query("SELECT * FROM members ORDER BY balance DESC");
-            while ($member = mysql_fetch_array($db_info)) {
+            $db_info = mysqli_query($db_connect, "SELECT * FROM members ORDER BY balance DESC");
+            while ($member = mysqli_fetch_array($db_info)) {
                 // Get balance into a variable
                 $balance = $member['balance'];
 
@@ -37,6 +36,7 @@
 
                 echo '</tr>' . PHP_EOL;
             }
+            mysqli_close($db_connect);
         ?>
     </table>
 </div>

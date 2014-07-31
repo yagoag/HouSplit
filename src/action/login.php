@@ -1,8 +1,7 @@
 <?php
     if ($_POST['login']) {
         // Set up MySQL connection
-        $db_handler = mysql_connect($mysql_server, $mysql_username, $mysql_password);
-        $db_found = mysql_select_db($mysql_db, $db_handler);
+        $db_connect = mysqli_connect($mysql_server, $mysql_username, $mysql_password, $mysql_db);
 
         // Get data from POST
         $user = $_POST['username'];
@@ -16,10 +15,12 @@
             echo $lang['error_type_pw_login'];
         } else {
             // (Try to) Select row with user's info 
-            $db_info = mysql_query("SELECT * FROM members WHERE username = '$user'");
+            $db_info = mysqli_query($db_connect, "SELECT * FROM members WHERE username = '$user'");
             if ($db_info) {
                 // Turns query's result into an array with its info
-                $db_info = mysql_fetch_assoc($db_info);
+                $db_info = mysqli_fetch_assoc($db_info);
+
+                mysqli_close($db_connect);
 
                 // Hash password
                 $pass = hash_pbkdf2("sha256", $pass, $db_info['salt'], $crypt_iterations, 20);

@@ -2,8 +2,7 @@
     include_once "config.php";
 
     // Set up MySQL connection
-    $db_handler = mysql_connect($mysql_server, $mysql_username, $mysql_password);
-    $db_found = mysql_select_db($mysql_db, $db_handler);
+    $db_connect = mysqli_connect($mysql_server, $mysql_username, $mysql_password, $mysql_db);
 ?>
 <script language="javascript">
     function toggle(source) {
@@ -21,10 +20,11 @@
     <div class="member_list">
         <p><input type="checkbox" onClick="toggle(this)" /> <strong><?php echo $lang['select_all_members']; ?></strong></p>
         <?php
-            $db_info = mysql_query("SELECT * FROM members");
-            while ($member = mysql_fetch_array($db_info))
+            $db_info = mysqli_query($db_connect, "SELECT * FROM members");
+            while ($member = mysqli_fetch_array($db_info))
                 if ($member['username'] != $user)
                     echo '<p><input type="checkbox" name="members[]" value="' . $member['id'] . '" /> ' . $member['name'] . '</p>';
+            mysqli_close($db_connect);
         ?>
     </div>
     <br />
