@@ -5,6 +5,9 @@
         $value = $_POST['value'];
         $member = $_POST['member'];
 
+        // Replace comma with dot as decimal operator
+        $value = str_replace(',', '.', $value);
+
         // Connect to server
         $db_connect = mysqli_connect($mysql_server, $mysql_username, $mysql_password, $mysql_db);
 

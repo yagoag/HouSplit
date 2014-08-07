@@ -13,6 +13,7 @@
     <title><?php echo $republica; ?></title>
     <link href="css/style.css" media="all" rel="Stylesheet" type="text/css">
     <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" ></script>
 </head>
 
 <body>
@@ -83,6 +84,6 @@
             }
         ?>
     </div>
-    <div id="footer">RePepeca Alpha 10 - Copyright &copy; 2014, Yago Arroyo</div>
+    <div id="footer">RePepeca Alpha 11 - Copyright &copy; 2014, Yago Arroyo</div>
 </body>
 </html>

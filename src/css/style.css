@@ -13,6 +13,8 @@ Source code available at github.com/yagoag
     margin: 0;
     padding: 0;
     text-decoration: none;
+    word-wrap: break-word;
+    font-weight: normal;
 }
 
 body {
@@ -54,7 +56,7 @@ input[type="button"], input[type="submit"] {
 form {
     margin-left: 15px;
     text-align: center;
-    width: 200px;
+    width: 350px;
 }
 
 a img {
@@ -75,6 +77,12 @@ a:hover img {
     margin-right: 20%;
     padding: 5px 10px;
     text-align: right;
+}
+
+@media (max-width: 1200px) {
+    #login_status {
+        margin-right: 25px;
+    }
 }
 
 #login_status .username {
@@ -162,7 +170,8 @@ a:hover img {
     font-size: 14px;
     border: 1px solid #bbb;
     text-align: left;
-    width: 195px;
+    width: 300px;
+    margin: auto;
 }
 
 #content table {
@@ -172,12 +181,35 @@ a:hover img {
     border: none;
 }
 
-#content td {
+#content table td, #content table th {
     padding: 2px 5px;
 }
 
-#content table .header {
+#content table th {
     color: #1b3792;
+    text-align: left;
+}
+
+#content .pager {
+    width: 70%;
+    text-align: center;
+    cursor: pointer;
+}
+
+#content div.pager span {
+    display: inline-block;
+    background: #ffea00;
+    color: #1b3792;
+    font-family: "BebasNeue", sans-serif;
+    font-size: 18px;
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    margin-right: 5px;
+}
+
+#content .balance table {
+    width: 40%;
 }
 
 #content .balance .bal {

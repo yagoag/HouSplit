@@ -14,7 +14,7 @@
                 $balance = $member['balance'];
 
                 // Print name of the member
-                echo '<tr><td>' . $member['name'] . '</td>';
+                echo '<tr><td style="witdh: 20%;">' . $member['name'] . '</td>';
 
                 // Print balance module
                 echo '<td class="bal ';

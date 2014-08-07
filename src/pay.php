@@ -6,8 +6,8 @@
 ?>
 <div class="title"><?php echo $lang['new_payment_title']; ?></div>
 <form id="new_payment" name="new_payment" method="post" action="?act=pay">
-    <p><input type="text" name="name" placeholder="<?php echo $lang['name']; ?>" /></p>
-    <p><input type="text" name="value" placeholder="<?php echo $lang['value']; ?>" /></p>
+    <p><input type="text" size="35" name="name" placeholder="<?php echo $lang['name']; ?>" /></p>
+    <p><input type="text" size="35" name="value" placeholder="<?php echo $lang['value']; ?>" /></p>
     <br />
     <p>
         <select name="member">

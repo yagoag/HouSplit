@@ -5,14 +5,14 @@
     $db_connect = mysqli_connect($mysql_server, $mysql_username, $mysql_password, $mysql_db);
 ?>
 <div class="title"><?php echo $lang['transactions_title']; ?></div>
-<table>
-    <tr class="header"><td><?php echo $lang['date']; ?></td><td><?php echo $lang['type']; ?></td><td><?php echo $lang['name']; ?></td><td><?php echo $lang['total_value']; ?></td><td><?php echo $lang['your_share']; ?></td></tr>
+<table class="paginated" style="width: 70%;">
+    <thead><tr><th style="width: 15%;"><?php echo $lang['date']; ?></th><th style="width: 12%;"><?php echo $lang['type']; ?></th><th style="width: 40%;"><?php echo $lang['name']; ?></th><th style="width: 15%;"><?php echo $lang['total_value']; ?></th><th><?php echo $lang['your_share']; ?></th></tr></thead>
     <?php
         $db_info = mysqli_query($db_connect, "SELECT * FROM members WHERE username = '$user'");
         $db_info = mysqli_fetch_assoc($db_info);
         $userID = $db_info['id'];
 
-        $db_info = mysqli_query($db_connect, "SELECT * FROM portions WHERE memberID = '$userID'");
+        $db_info = mysqli_query($db_connect, "SELECT * FROM portions WHERE memberID = '$userID' ORDER BY id DESC");
 
         while ($info = mysqli_fetch_assoc($db_info)) {
             $paymentID = $info['paymentID'];
@@ -29,3 +29,4 @@
         mysqli_close($db_connect);
     ?>
 </table>
+<script type="text/javascript" src="js/pagination.js" ></script>
