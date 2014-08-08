@@ -194,9 +194,10 @@ a:hover img {
     width: 70%;
     text-align: center;
     cursor: pointer;
+    margin-top: 10px;
 }
 
-#content div.pager span {
+#content .pager .page_number {
     display: inline-block;
     background: #ffea00;
     color: #1b3792;
@@ -206,6 +207,19 @@ a:hover img {
     height: 24px;
     line-height: 24px;
     margin-right: 5px;
+}
+
+#content .transactions td, #content .transactions th {
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+}
+
+#content .transactions td {
+    border-color: #d4bd21;
+}
+
+#content .transactions th {
+    border-color: #1b3792;
 }
 
 #content .balance table {

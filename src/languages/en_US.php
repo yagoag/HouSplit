@@ -29,8 +29,12 @@ $lang = array (
     'password' => "Password",
     'date' => "Date",
     'type' => "Type",
+    'payer' => "Payer",
     'total_value' => "Total Value",
     'your_share' => "Your Share",
+    'type_bill' => "Bill",
+    'type_payment' => "Payment",
+    'type_credtransf' => "Cred. Transf.",
 
     'success' => "Success",
     'msg_member_registered' => "New member registered with success.",

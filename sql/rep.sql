@@ -1,8 +1,9 @@
 CREATE TABLE IF NOT EXISTS `payments` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` text NOT NULL,
+  `payer` int NOT NULL,
   `date` date NOT NULL,
-  `type` ENUM('Payment', 'Bill') NOT NULL,
+  `type` ENUM('Payment', 'Bill', 'CredTransf') NOT NULL,
   `value` float NOT NULL,
   PRIMARY KEY (`id`)
 ) DEFAULT CHARSET=latin1 AUTO_INCREMENT;

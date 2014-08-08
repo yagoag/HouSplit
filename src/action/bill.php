@@ -13,8 +13,13 @@
         // Connect to server
         $db_connect = mysqli_connect($mysql_server, $mysql_username, $mysql_password, $mysql_db);
 
+        // Select payer's info and get their ID
+        $db_info = mysqli_query($db_connect, "SELECT * FROM members WHERE username = '$user'");
+        $db_info = mysqli_fetch_assoc($db_info);
+        $member = $db_info['id'];
+
         // Insert payment into database
-        mysqli_query($db_connect, "INSERT INTO payments (name, date, type, value) VALUES ('$name', now(), 'Bill', $value)");
+        mysqli_query($db_connect, "INSERT INTO payments (name, payer, date, type, value) VALUES ('$name', '$member', now(), 'Bill', $value)");
 
         // Get payment's ID
         $payment_id = mysqli_fetch_assoc(mysqli_query($db_connect, "SELECT MAX(id) AS payment_id FROM payments"));
@@ -22,6 +27,11 @@
 
         // Divide payment by the number of members in it
         $value = round($value / (count($members) + 1), 2);
+
+        // Create payment portion and update balance of payer
+        $balance = $db_info['balance'] + $value * count($members);
+        mysqli_query($db_connect, "INSERT INTO portions (memberID, paymentID, value) VALUES ('$member', '$payment_id', '$value')");
+        mysqli_query($db_connect, "UPDATE members SET balance = '$balance' WHERE id = '$member'");
 
         // Create payment portions and update balances of the members selected
         foreach ($members as $member) {
@@ -31,14 +41,6 @@
             mysqli_query($db_connect, "INSERT INTO portions (memberID, paymentID, value) VALUES ('$member', '$payment_id', '$value')");
             mysqli_query($db_connect, "UPDATE members SET balance = '$balance' WHERE id = '$member'");
         }
-
-        // Create payment portion and update balance of payer
-        $db_info = mysqli_query($db_connect, "SELECT * FROM members WHERE username = '$user'");
-        $db_info = mysqli_fetch_assoc($db_info);
-        $member = $db_info['id'];
-        $balance = $db_info['balance'] + $value * count($members);
-        mysqli_query($db_connect, "INSERT INTO portions (memberID, paymentID, value) VALUES ('$member', '$payment_id', '$value')");
-        mysqli_query($db_connect, "UPDATE members SET balance = '$balance' WHERE id = '$member'");
 
         // Close connection
         mysqli_close($db_connect);
