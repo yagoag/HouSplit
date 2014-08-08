@@ -84,6 +84,6 @@
             }
         ?>
     </div>
-    <div id="footer">RePepeca Alpha 12 - Copyright &copy; 2014, Yago Arroyo</div>
+    <div id="footer">RePepeca Beta - Copyright &copy; 2014, Yago Arroyo</div>
 </body>
 </html>

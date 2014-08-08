@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `payments` (
+CREATE TABLE IF NOT EXISTS `transactions` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` text NOT NULL,
   `payer` int NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `members` (
 CREATE TABLE IF NOT EXISTS `portions` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `memberID` int(10) unsigned NOT NULL,
-  `paymentID` int(10) unsigned NOT NULL,
+  `transactionID` int(10) unsigned NOT NULL,
   `value` float NOT NULL,
   PRIMARY KEY (`id`)
 ) DEFAULT CHARSET=latin1 AUTO_INCREMENT;

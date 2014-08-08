@@ -15,25 +15,25 @@
         $db_info = mysqli_query($db_connect, "SELECT * FROM portions WHERE memberID = '$userID' ORDER BY id DESC");
 
         while ($info = mysqli_fetch_assoc($db_info)) {
-            $paymentID = $info['paymentID'];
-            $payment = mysqli_query($db_connect, "SELECT * FROM payments WHERE id='$paymentID'");
-            $payment = mysqli_fetch_assoc($payment);
+            $transaction = $info['transactionID'];
+            $transaction = mysqli_query($db_connect, "SELECT * FROM transactions WHERE id='$transaction'");
+            $transaction = mysqli_fetch_assoc($transaction);
             echo '<tr>';
-            echo '<td>' . date($dateformat, strtotime($payment['date'])) . '</td>';
+            echo '<td>' . date($dateformat, strtotime($transaction['date'])) . '</td>';
             echo '<td>';
-            if ($payment['type'] == 'CredTransf')
+            if ($transaction['type'] == 'CredTransf')
                 echo $lang['type_credtransf'];
-            elseif ($payment['type'] == 'Bill')
+            elseif ($transaction['type'] == 'Bill')
                 echo $lang['type_bill'];
             else
                 echo $lang['type_payment'];
             echo '</td>';
-            $payer = $payment['payer'];
+            $payer = $transaction['payer'];
             $payer = mysqli_query($db_connect, "SELECT * FROM members WHERE id='$payer'");
             $payer = mysqli_fetch_assoc($payer);
             echo '<td>' . $payer['name'] . '</td>';
-            echo '<td>' . $payment['name'] . '</td>';
-            echo '<td>' . $currency . number_format($payment['value'], 2) . '</td>';
+            echo '<td>' . $transaction['name'] . '</td>';
+            echo '<td>' . $currency . number_format($transaction['value'], 2) . '</td>';
             echo '<td>' . $currency . number_format($info['value'], 2) . '</td></tr>';
         }
 
