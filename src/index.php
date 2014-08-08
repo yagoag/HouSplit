@@ -1,11 +1,11 @@
 <?php
-    include_once "action/session.php";
-    include_once "config.php";
+    require_once "action/session.php";
+    require_once "config.php";
 
     if (file_exists('languages/' . $language . '.php'))
-        include_once 'languages/' . $language . '.php';
+        require_once 'languages/' . $language . '.php';
     else
-        include_once 'languages/en_US.php';
+        require_once 'languages/en_US.php';
 ?>
 <html>
 <head>
@@ -61,26 +61,26 @@
                 if (isset($_GET['p'])) {
                     $page = $_GET['p'] . ".php";
                     if (file_exists($page))
-                        include $page;
+                        require $page;
                     else
-                        include "404.php";
+                        require "404.php";
                 } elseif (isset($_GET['act'])) {
                     $page = "action/" . $_GET['act'] . ".php";
                     if (file_exists($page))
-                        include $page;
+                        require $page;
                     else
-                        include "404.php";
+                        require "404.php";
                 } else
-                    include "balance.php";
+                    require "balance.php";
             } else {
                 if (isset($_GET['act'])) {
                     $page = "action/" . $_GET['act'] . ".php";
                     if ($page = "action/login.php")
-                        include $page;
+                        require $page;
                     else
-                        include "login.php";
+                        require "login.php";
                 } else
-                    include "login.php";
+                    require "login.php";
             }
         ?>
     </div>

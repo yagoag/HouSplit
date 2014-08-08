@@ -1,7 +1,5 @@
 <?php
     if ($_POST['new_payment']) {
-        include_once "config.php";
-
         // Get POST values
         $name = $_POST['name'];
         $value = $_POST['value'];
