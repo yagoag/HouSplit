@@ -33,9 +33,6 @@
                     // Redirect user to main page
                     header("Location: index.php");
                 }
-            } else {
-                echo '<div class="title">' . $lang['error'] . '</div>';
-                echo $lang['error_invalid_user'];
             }
 
             echo '<div class="title">' . $lang['error'] . '</div>';
