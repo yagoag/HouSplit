@@ -1,6 +1,6 @@
 <?php
-    require_once "action/session.php";
     require_once "config.php";
+    require_once "action/session.php";
 
     if (file_exists('languages/' . $language . '.php'))
         require_once 'languages/' . $language . '.php';
@@ -30,30 +30,39 @@
         <img class="logo" src="img/logo.png" /><?php echo $republica; ?>
     </div>
     <div id="sidebar">
-        <a href="?p=balance">
-            <div class="option"><?php echo $lang['balance_title']; ?></div>
-            <div class="description"><?php echo $lang['balance_description']; ?></div>
-        </a>
-        <a href="?p=transactions">
-            <div class="option"><?php echo $lang['transactions_title']; ?></div>
-            <div class="description"><?php echo $lang['transactions_description']; ?></div>
-        </a>
-        <a href="?p=bill">
-            <div class="option"><?php echo $lang['new_bill_title']; ?></div>
-            <div class="description"><?php echo $lang['new_bill_description']; ?></div>
-        </a>
-        <a href="?p=pay">
-            <div class="option"><?php echo $lang['new_payment_title']; ?></div>
-            <div class="description"><?php echo $lang['new_payment_description']; ?></div>
-        </a>
-        <a href="?p=credit">
-            <div class="option"><?php echo $lang['new_cred_transf_title']; ?></div>
-            <div class="description"><?php echo $lang['new_cred_transf_description']; ?></div>
-        </a>
-        <a href="?p=register">
-            <div class="option"><?php echo $lang['register_title']; ?></div>
-            <div class="description"><?php echo $lang['register_description']; ?></div>
-        </a>
+        <?php if ($loggedin) { ?>
+                <a href="?p=balance">
+                    <div class="option"><?php echo $lang['balance_title']; ?></div>
+                    <div class="description"><?php echo $lang['balance_description']; ?></div>
+                </a>
+                <a href="?p=transactions">
+                    <div class="option"><?php echo $lang['transactions_title']; ?></div>
+                    <div class="description"><?php echo $lang['transactions_description']; ?></div>
+                </a>
+                <a href="?p=bill">
+                    <div class="option"><?php echo $lang['new_bill_title']; ?></div>
+                    <div class="description"><?php echo $lang['new_bill_description']; ?></div>
+                </a>
+                <a href="?p=pay">
+                    <div class="option"><?php echo $lang['new_payment_title']; ?></div>
+                    <div class="description"><?php echo $lang['new_payment_description']; ?></div>
+                </a>
+                <a href="?p=credit">
+                    <div class="option"><?php echo $lang['new_cred_transf_title']; ?></div>
+                    <div class="description"><?php echo $lang['new_cred_transf_description']; ?></div>
+                </a>
+                <?php if ($admin) { ?>
+                    <a href="?p=admin">
+                        <div class="option"><?php echo $lang['admin_panel_title']; ?></div>
+                        <div class="description"><?php echo $lang['admin_panel_description']; ?></div>
+                    </a>
+                <?php }
+            } else { ?>
+                <a href="?p=login">
+                    <div class="option"><?php echo $lang['login']; ?></div>
+                    <div class="description"><?php echo $lang['login_description']; ?></div>
+                </a>
+        <?php } ?>
     </div>
     <div id="content">
         <?php
@@ -84,6 +93,6 @@
             }
         ?>
     </div>
-    <div id="footer">RePepeca Beta - Copyright &copy; 2014, Yago Arroyo</div>
+    <div id="footer">HouSplit Beta - Copyright &copy; 2014-2015, Yago Arroyo</div>
 </body>
 </html>
