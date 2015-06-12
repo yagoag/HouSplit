@@ -21,8 +21,6 @@ $lang = array (
     'new_cred_transf_description' => "make a new credit transference",
     'administration_title' => 'Administration',
     'administration_description' => 'manage members',
-    'register_title' => "Register",
-    'register_description' => "register a new member",
     'value' => "Value",
     'select_all_members' => "Select all members",
     'add_bill' => "Add Bill",
@@ -39,23 +37,29 @@ $lang = array (
     'type_payment' => "Payment",
     'type_credtransf' => "Cred. Transf.",
     'member_is_admin' => "Member is an administrator",
+    'edit_member' => "Edit member's account",
+    'register_member' => "Register a new member",
+    'change_member_name' => "Change a member's name",
 
     'success' => "Success",
     'msg_member_registered' => "New member registered with success.",
     'msg_payment_added' => "New payment added with success.",
     'msg_bill_added' => "New bill added with success.",
     'msg_cred_transf_added' => "New credit transference done with success.",
+    'msg_account_updated' => "Account has been updated with success.",
 
     'error' => "Error",
     'error_404_title' => "Error 404",
     'error_404_description' => "Page not found.",
-    'error_404_title' => "Error 403",
-    'error_404_description' => "Access denied.",
+    'error_403_title' => "Error 403",
+    'error_403_description' => "Access denied.",
     'error_username_in_use' => "The username chosen is already in use.",
     'error_fill_all_register' => "You must fill in all the fields in order to register a new member.",
     'error_type_user_login' => "Please, type your username to login.",
     'error_type_pw_login' => "Please, type your password to login.",
     'error_invalid_user' => "Invalid username.",
-    'error_user_pw_match' => "Username and/or password do not match."
+    'error_user_pw_match' => "Username and/or password do not match.",
+    'error_deactivated_account' => "Your account has been deactivated by an administrator.",
+    'error_account_not_updated' => "The account could not be updated. Please try again later."
 );
 ?>

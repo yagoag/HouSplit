@@ -21,8 +21,6 @@ $lang = array (
     'new_cred_transf_description' => "realizar uma nova transferência de crédito",
     'administration_title' => 'Administração',
     'administration_description' => 'gerenciar membros',
-    'register_title' => "Registrar",
-    'register_description' => "registrar um novo membro",
     'value' => "Valor",
     'select_all_members' => "Selecionar todos os membros",
     'add_bill' => "Adicionar Conta",
@@ -39,12 +37,16 @@ $lang = array (
     'type_payment' => "Pagamento",
     'type_credtransf' => "Transf. Cred.",
     'member_is_admin' => "Este membro é administrador",
+    'edit_member' => "Editar conta de um membro",
+    'register_member' => "Registrar novo membro",
+    'change_member_name' => "Mudar nome de um membro",
 
     'success' => "Sucesso",
     'msg_member_registered' => "Novo membro registrado com sucesso.",
     'msg_payment_added' => "Novo pagamento adicionado com sucesso.",
     'msg_bill_added' => "Nova conta adicionada com sucesso.",
     'msg_cred_transf_added' => "Nova transferência de crédito realizada com sucesso.",
+    'msg_account_updated' => "A conta foi atualizada com sucesso.",
 
     'error' => "Erro",
     'error_404_title' => "Erro 404",
@@ -56,6 +58,8 @@ $lang = array (
     'error_type_user_login' => "Por favor, informe o seu usuário para realizar login.",
     'error_type_pw_login' => "Por favor, informe a sua senha para realizar login.",
     'error_invalid_user' => "Usuário inválido.",
-    'error_user_pw_match' => "Usuário e/ou senha incorretos."
+    'error_user_pw_match' => "Usuário e/ou senha incorretos.",
+    'error_deactivated_account' => "Sua conta foi desativada por um administrador.",
+    'error_account_not_updated' => "A conta não pode ser autalizada. Por favor, tente novamente."
 );
 ?>

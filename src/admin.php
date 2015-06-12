@@ -14,8 +14,12 @@
                 require "404.php";
         } else {
 ?>
-<p><a href="?p=admin&subp=register">Register a new member</a></p>
-<!--<p><a href="?p=admin&subp=edituser">Edit some user's information</a></p>-->
+<div class="title"><?php echo $lang['administration_title']; ?></div>
+<div class="page-content">
+    <p><a href="?p=admin&subp=register"><button><?php echo $lang['register_member'] ?></button></a></p>
+    <p><a href="?p=admin&subp=edit"><button><?php echo $lang['edit_member'] ?></button></a></p>
+    <p><a href="?p=admin&subp=name"><button><?php echo $lang['change_member_name'] ?></button></a></p>
+</div>
 <?php
         }
     } else {
