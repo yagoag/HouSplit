@@ -28,7 +28,7 @@ p {
     margin-bottom: 7px;
 }
 
-input, select {
+input, select, button {
     background: #fff;
     border-radius: 5px;
     -webkit-box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.3);
@@ -53,7 +53,7 @@ input[type="button"], input[type="submit"] {
     color: #ffea00;
 }
 
-form {
+form, .page-content {
     margin-left: 15px;
     text-align: center;
     width: 350px;

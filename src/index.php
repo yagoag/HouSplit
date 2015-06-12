@@ -20,7 +20,7 @@
     <div id="login_status">
         <?php
             if ($loggedin) {
-                echo '<div class="username"><a href="?p=account"><img src="img/edit.png" /></a> ' . $user . '</div>';
+                echo '<div class="username"><a href="?p=account"><img src="img/edit.png" /></a> ' . $_SESSION['username'] . '</div>';
                 echo '<div class="logout"><a href="?act=logout">' . $lang['logout'] . '</a></div>';
             } else
                 echo '<div class="username"><a href="?p=login">' . $lang['login'] . '</a></div>';
@@ -53,8 +53,8 @@
                 </a>
                 <?php if ($admin) { ?>
                     <a href="?p=admin">
-                        <div class="option"><?php echo $lang['admin_panel_title']; ?></div>
-                        <div class="description"><?php echo $lang['admin_panel_description']; ?></div>
+                        <div class="option"><?php echo $lang['administration_title']; ?></div>
+                        <div class="description"><?php echo $lang['administration_description']; ?></div>
                     </a>
                 <?php }
             } else { ?>

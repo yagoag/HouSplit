@@ -1,46 +1,55 @@
 <?php
-    if ($_POST['new_credit_transf']) {
-        // Get POST values
-        $name = $_POST['name'];
-        $value = $_POST['value'];
-
-        // Replace comma with dot as decimal operator
-        $value = str_replace(',', '.', $value);
+    if ($_POST['new_credit_transf'] && $loggedin) {
+        $value = str_replace(',', '.', $_POST['value']); // Replace comma with dot as decimal operator
         
-        // Connect to server
-        $db_connect = mysqli_connect($mysql_server, $mysql_username, $mysql_password, $mysql_db);
+        if ($connection = new mysqli($mysql_server, $mysql_username, $mysql_password, $mysql_db)) {
+            $query = $connection->prepare('SELECT * FROM members WHERE username = ?');
+            $query->bind_param('s', $user);
+            $query->execute();
+            $db_info = $query->get_result()->fetch_assoc();
+            $member = $db_info['id'];
 
-        // Select payer's info and get their ID
-        $db_info = mysqli_query($db_connect, "SELECT * FROM members WHERE username = '$user'");
-        $db_info = mysqli_fetch_assoc($db_info);
-        $member = $db_info['id'];
+            $query = $connection->prepare('INSERT INTO transactions (name, payer, date, type, value) VALUES (?, ?, now(), \'CredTransf\', ?)');
+            $query->bind_param('sid', $_POST['name'], $member, $value);
+            $query->execute();
 
-        // Insert transaction into database
-        mysqli_query($db_connect, "INSERT INTO transactions (name, payer, date, type, value) VALUES ('$name', '$member', now(), 'CredTransf', $value)");
+            // Get transactions's ID
+            $query = $connection->prepare('SELECT MAX(id) AS transaction_id FROM transactions');
+            $query->execute();
+            $transaction = $query->get_result()->fetch_assoc();
+            $transaction = $transaction['transaction_id'];
 
-        // Get transactions's ID
-        $transaction = mysqli_fetch_assoc(mysqli_query($db_connect, "SELECT MAX(id) AS transaction_id FROM transactions"));
-        $transaction = $transaction['transaction_id']; // Get content from returned array
+            // Create payment portion and update balance of payer
+            $balance = $db_info['balance'] - $value;
+            $query = $connection->prepare('INSERT INTO portions (memberID, transactionID, value) VALUES (?, ?, ?)');
+            $query->bind_param('iid', $member, $transaction, $value);
+            $query->execute();
+            $query = $connection->prepare('UPDATE members SET balance = ? WHERE id = ?');
+            $query->bind_param('di', $balance, $member);
+            $query->execute();
 
-        // Create payment portion and update balance of payer
-        $balance = $db_info['balance'] - $value;
-        mysqli_query($db_connect, "INSERT INTO portions (memberID, transactionID, value) VALUES ('$member', '$transaction', '$value')");
-        mysqli_query($db_connect, "UPDATE members SET balance = '$balance' WHERE id = '$member'");
+            // Create payment portion and update balance of receiver
+            $member = $_POST['member'];
+            $query = $connection->prepare('SELECT * FROM members WHERE id = ?');
+            $query->bind_param('i', $member);
+            $query->execute();
+            $db_info = $query->get_result()->fetch_assoc();
+            $balance = $db_info['balance'] + $value;
+            $query = $connection->prepare('INSERT INTO portions (memberID, transactionID, value) VALUES (?, ?, ?)');
+            $query->bind_param('iid', $member, $transaction, $value);
+            $query->execute();
+            $query = $connection->prepare('UPDATE members SET balance = ? WHERE id = ?');
+            $query->bind_param('di', $balance, $member);
+            $query->execute();
 
-        // Create payment portion and update balance of receptor
-        $member = $_POST['member'];
-        $db_info = mysqli_query($db_connect, "SELECT * FROM members WHERE id = $member");
-        $db_info = mysqli_fetch_assoc($db_info);
-        $balance = $db_info['balance'] + $value;
-        mysqli_query($db_connect, "INSERT INTO portions (memberID, transactionID, value) VALUES ('$member', '$transaction', '$value')");
-        mysqli_query($db_connect, "UPDATE members SET balance = '$balance' WHERE id = '$member'");
+            $connection->close();
 
-        // Close connection
-        mysqli_close($db_connect);
-
-        // Show success message
-        echo '<div class="title">' . $lang['success'] . '</div>';
-        echo $lang['msg_cred_transf_added'];
+            echo '<div class="title">' . $lang['success'] . '</div>';
+            echo $lang['msg_cred_transf_added'];
+        } else {
+            echo '<div class="title">' . $lang['error'] . '</div>';
+            echo $lang['error'] . ' ' . $connection->connect_errno . ': ' . $connection->connect_error;
+        }
     } else
         die();
 ?>
