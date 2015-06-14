@@ -7,6 +7,7 @@ HouSplit is a bill management system based in PHP and MySQL for people dividing 
 ## Requirements
 * PHP 5.5+ <sup>†</sup>
 * MySQL 5.0+
+
 <sub>† it is possible to adapt the system to work with older versions of PHP, but at least 5.5 is necessary to run the system as-is</sub>
 
 ## Installation
