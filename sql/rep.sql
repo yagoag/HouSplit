@@ -15,8 +15,8 @@ CREATE TABLE IF NOT EXISTS `members` (
   `balance` float NOT NULL,
   `password` text NOT NULL,
   `salt` text NOT NULL,
-  `active` bool DEFAULT TRUE,
-  `admin` bool DEFAULT FALSE,
+  `active` bool NOT NULL DEFAULT TRUE,
+  `admin` bool NOT NULL DEFAULT FALSE,
   PRIMARY KEY (`id`)
 ) DEFAULT CHARSET=latin1 AUTO_INCREMENT;
 

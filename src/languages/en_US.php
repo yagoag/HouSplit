@@ -28,6 +28,7 @@ $lang = array (
     'add_transference' => "Add Transference",
     'username' => "Username",
     'password' => "Password",
+    'register' => "Register",
     'date' => "Date",
     'type' => "Type",
     'payer' => "Payer",
@@ -40,6 +41,7 @@ $lang = array (
     'edit_member' => "Edit member's account",
     'register_member' => "Register a new member",
     'change_member_name' => "Change a member's name",
+    'deactivate_account' => "Deactivate this member's account",
 
     'success' => "Success",
     'msg_member_registered' => "New member registered with success.",
