@@ -1,14 +1,13 @@
-# RePepeca
+# HouSplit
 
-![RePepeca](screenshot.png)
+![HouSplit](screenshot.png)
 
-RePepeca is a bill management system based in PHP and MySQL for people dividing houses and bills, especially university students. It is meant to be used by "Repúblicas" - often shorted down to "Rep(s)" - which are houses divided by university students in Brazil, usually in a large number of people. It can also be applied to many other situation in which people share bills and/or borrow money to each other.
+HouSplit is a bill management system based in PHP and MySQL for people dividing houses and bills, especially university students. It was originally meant to be used by "Repúblicas" - often shorted down to "Rep(s)" - which are houses divided by university students in Brazil, usually in a large number of people. It can also be applied to many other situation in which people share bills and/or borrow money to each other. Some other places you could use HouSplit are your Fraternity house or even your University Housing unit.
 
 ## Requirements
-* PHP 5.5+ †
+* PHP 5.5+ <sup>†</sup>
 * MySQL 5.0+
-
-† it is possible to adapt the system to work with older versions of PHP, but at least 5.5 is necessary to run the system as-is
+<sub>† it is possible to adapt the system to work with older versions of PHP, but at least 5.5 is necessary to run the system as-is</sub>
 
 ## Installation
 * Run the SQL query on the folder "sql/"
