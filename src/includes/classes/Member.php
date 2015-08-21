@@ -1,5 +1,6 @@
 <?php
 namespace HouSplit;
+require_once 'Connection.php';
 
 class Member {
     private $connection;
@@ -31,10 +32,11 @@ class Member {
      * Verify if the Member's information has timed out and, if so, retrieves fresh information
      * from the database.
      *
+     * @param $force_update
      * @throws \ErrorException when the member is not active
      */
-    private function validate_information() {
-        if (time() > $this->information_time + $this->information_timeout)
+    private function validate_information($force_update) {
+        if (time() > $this->information_time + $this->information_timeout || $force_update)
             $this->update_from_database();
     }
 
@@ -62,9 +64,13 @@ class Member {
      *
      * @throws \ErrorException when the member is not active
      */
-    public function __construct($connection, $username, $name = null, $admin = null,
+    public function __construct($connection = null, $username, $name = null, $admin = null,
                                 $new_member = false) {
-        $this->connection = $connection;
+        if ($connection)
+            $this->connection = $connection;
+        else
+            $this->connection = new Connection();
+
         $this->username = $username;
         if ($new_member)
             $this->add_to_database($username, $name, $admin);
@@ -88,10 +94,7 @@ class Member {
      */
     public function is_active($force_update = false) {
         try {
-            if ($force_update)
-                $this->update_from_database();
-            else
-                $this->validate_information();
+            $this->validate_information($force_update);
         } catch (\ErrorException $e) {
             return false;
         }
@@ -107,12 +110,12 @@ class Member {
      * @throws \ErrorException when the member is not active
      */
     public function is_admin($force_update = false) {
-        if ($force_update)
-            $this->update_from_database();
-        else
-            $this->validate_information();
-
+        $this->validate_information($force_update);
         return $this->admin;
+    }
+
+    public function set_session() {
+
     }
 
     /**
@@ -124,8 +127,11 @@ class Member {
      * @return string
      *  Content of the balance table
      */
-    public static function balance_table($connection) {
-        $members = $connection->query('SELECT name, balance FROM members WHERE 1=1');
+    public static function balance_table($connection = null) {
+        if ($connection === null)
+            $connection = new Connection();
+
+        $members = $connection->query('SELECT name, balance FROM members WHERE 1 = 1');
 
         $table = '<table class="table">';
         while ($member = $members->fetch_array()) {
@@ -139,8 +145,9 @@ class Member {
         return $table;
     }
 
-    public static function update_active_status($connection, $member, $status) {
-
+    public static function update_active_status($connection = null, $member, $status) {
+        if ($connection === null)
+            $connection = new Connection();
     }
 }
 ?>
