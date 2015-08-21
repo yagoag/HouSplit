@@ -131,7 +131,9 @@ class Member {
         if ($connection === null)
             $connection = new Connection();
 
-        $members = $connection->query('SELECT name, balance FROM members WHERE 1 = 1');
+        $members = $connection->query('SELECT name, COALESCE(SUM(value), 0) AS balance FROM portions '.
+                                      'RIGHT JOIN members ON portions.member = members.username '.
+                                      'WHERE active = 1 GROUP BY portions.member ORDER BY balance DESC');
 
         $table = '<table class="table">';
         while ($member = $members->fetch_array()) {
