@@ -148,6 +148,9 @@ class Member {
     public static function update_active_status($connection = null, $member, $status) {
         if ($connection === null)
             $connection = new Connection();
+
+        $query = $connection->prepare('UPDATE members SET active = ? WHERE username = ? LIMIT 1');
+        $query->bind_param('is', $status, $member);
     }
 }
 ?>
