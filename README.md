@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/yagoag/HouSplit.png?label=ready&title=Ready)](https://waffle.io/yagoag/HouSplit)
 # HouSplit
 
 ![HouSplit](screenshot.png)
