@@ -1,5 +1,4 @@
-[![Stories in Ready](https://badge.waffle.io/yagoag/HouSplit.png?label=ready&title=Ready)](https://waffle.io/yagoag/HouSplit)
-# HouSplit
+# HouSplit [![Stories in Ready](https://badge.waffle.io/yagoag/HouSplit.png?label=ready&title=Ready)](https://waffle.io/yagoag/HouSplit) [![Stories in progress](https://badge.waffle.io/yagoag/HouSplit.png?label=in+progress&title=In Progress)](https://waffle.io/yagoag/HouSplit)
 
 ![HouSplit](screenshot.png)
 
