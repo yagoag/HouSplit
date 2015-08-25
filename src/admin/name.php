@@ -10,7 +10,8 @@
     <p>
         <select name="member">
         <?php
-            $db_info = $connection->query('SELECT * FROM members WHERE 1=1');
+            $db_info = $connection->prepare('SELECT * FROM members');
+            $db_info->execute();
             while ($member = $db_info->fetch_array())
                 if ($member['username'] != $user)
                     echo '<option value="' . $member['id'] . '">' . $member['name'] . '</option>';

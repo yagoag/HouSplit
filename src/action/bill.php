@@ -14,7 +14,8 @@
             $query->execute();
 
             // Get transaction's ID
-            $transaction = $connection->query('SELECT MAX(id) AS transaction_id FROM transactions');
+            $transaction = $connection->prepare('SELECT MAX(id) AS transaction_id FROM transactions');
+            $transaction->execute();
             $transaction = $transaction->fetch_assoc()['transaction_id'];
 
             $value = round($value / (count($_POST['members']) + 1), 2);  // Value or each portion
