@@ -7,7 +7,9 @@
             $_POST['deactivate'] = 0;   // Note inverted value
 
         if ($connection = new mysqli($mysql_server, $mysql_username, $mysql_password, $mysql_db)) {
-            if ($connection->query('UPDATE members SET admin = '.$_POST['admin'].', active = '.$_POST['deactivate'].' WHERE id = '.$_POST['member'])) {
+            $connection->prepare('UPDATE members SET admin = ?, active = ? WHERE id = ?');
+            $connection->bind_param('iii', $_POST['admin'], $_POST['deactivate'], $_POST['member']);
+            if ($connection->execute()) {
                 echo '<div class="title">' . $lang['success'] . '</div>';
                 echo $lang['msg_account_updated'];
             } else {

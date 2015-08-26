@@ -1,6 +1,7 @@
 <?php
     if ($connection = new mysqli($mysql_server, $mysql_username, $mysql_password, $mysql_db)) {
-        $db_info = $connection->query('SELECT * FROM members WHERE 1=1');
+        $db_info = $connection->prepare('SELECT * FROM members');
+        $db_info->execute();
 ?>
 <div class="title"><?php echo $lang['transactions_title']; ?></div>
 <table class="transactions paginated" style="width: 70%;">

@@ -1,6 +1,7 @@
 <?php
     if ($connection = new mysqli($mysql_server, $mysql_username, $mysql_password, $mysql_db)) {
-        $db_info = $connection->query('SELECT * FROM members WHERE 1=1 ORDER BY balance DESC');
+        $db_info = $connection->prepare('SELECT * FROM members ORDER BY balance DESC');
+        $db_info->execute();
         $connection->close();
 ?>
 <div class="title"><?php echo $lang['balance_title']; ?></div>
