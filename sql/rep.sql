@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS `transactions` (
   `type` ENUM('Payment', 'Bill', 'CredTransf') NOT NULL,
   `value` float NOT NULL,
   PRIMARY KEY (`id`)
-) DEFAULT CHARSET=latin1 AUTO_INCREMENT;
+);
 
 CREATE TABLE IF NOT EXISTS `members` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS `members` (
   `active` bool NOT NULL DEFAULT TRUE,
   `admin` bool NOT NULL DEFAULT FALSE,
   PRIMARY KEY (`id`)
-) DEFAULT CHARSET=latin1 AUTO_INCREMENT;
+);
 
 CREATE TABLE IF NOT EXISTS `portions` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -26,4 +26,4 @@ CREATE TABLE IF NOT EXISTS `portions` (
   `transactionID` int(10) unsigned NOT NULL,
   `value` float NOT NULL,
   PRIMARY KEY (`id`)
-) DEFAULT CHARSET=latin1 AUTO_INCREMENT;
+);
