@@ -42,6 +42,7 @@ $lang = array (
     'register_member' => "Registrar novo membro",
     'change_member_name' => "Mudar nome de um membro",
     'deactivate_account' => "Desativar a conta deste membro",
+    'new_admin_account' => "Nova conta de administrador",
 
     'success' => "Sucesso",
     'msg_member_registered' => "Novo membro registrado com sucesso.",
@@ -49,6 +50,7 @@ $lang = array (
     'msg_bill_added' => "Nova conta adicionada com sucesso.",
     'msg_cred_transf_added' => "Nova transferência de crédito realizada com sucesso.",
     'msg_account_updated' => "A conta foi atualizada com sucesso.",
+    'msg_admin_created' => "Conta de administrador criada com sucesso. Lembre-se de apagar o arquivo install.php.",
 
     'error' => "Erro",
     'error_404_title' => "Erro 404",
